@@ -9,4 +9,12 @@ class Actor < ApplicationRecord
   def self.average_age
     average(:age)
   end
+
+  def actors_worked_with
+    Actor.joins(:movies)
+          .where("movie_actors.movie_id IN (?)", movies.map(&:id))
+          .where("movie_actors.actor_id <> ?", id)
+          .distinct
+  end
+
 end

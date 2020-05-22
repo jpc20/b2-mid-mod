@@ -1,0 +1,8 @@
+<h1><%= @actor.name %></h1>
+<h2>Age: <%= @actor.age %></h2>
+
+<ul class="actors-worked-with">
+  <% @actor.actors_worked_with.each do |actor| %>
+    <li><%= actor.name %></li>
+  <% end %>
+</ul>
