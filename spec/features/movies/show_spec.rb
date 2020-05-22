@@ -7,15 +7,15 @@ RSpec.describe "Movie show page" do
     actor1 = movie.actors.create(name: "Kid Actor", age: 10)
     actor2 = movie.actors.create(name: "Middle Age Actor", age: 40)
     actor3 = movie.actors.create(name: "Old Actor", age: 70)
-    visit "/movies/#{movie1.id}"
+    visit "/movies/#{movie.id}"
 
     expect(page).to have_content(movie.title)
     expect(page).to have_content(movie.year)
     expect(page).to have_content(movie.genre)
 
     within ".actors-list" do
-      expect(actor1.name).to appear_berfore(actor2.name)
-      expect(actor2.name).to appear_berfore(actor3.name)
+      expect(actor1.name).to appear_before(actor2.name)
+      expect(actor2.name).to appear_before(actor3.name)
       expect(page).to have_content("Average Age: 40")
     end
 
