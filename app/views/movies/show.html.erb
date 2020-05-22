@@ -12,4 +12,5 @@
   <% @movie.actors.order_by_age.each do |actor| %>
   <li><%= actor.name %></li>
   <% end %>
+  Average Age: <%= @movie.actors.average_age %>
 </ul>
