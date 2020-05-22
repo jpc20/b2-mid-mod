@@ -32,5 +32,6 @@ RSpec.describe "Movie show page" do
     end
     expect(current_path).to eq("/movies/#{@movie.id}")
     expect(page).to have_content(new_actor.name)
+    expect(@movie.actors.last).to eq(new_actor)
   end
 end
